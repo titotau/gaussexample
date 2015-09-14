@@ -4,7 +4,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def gaussian(x, pars):
+def gaussian(x, pars, color='b'):
     A, sigma, mu = pars
     return A * np.exp(-(x - mu)**2 / 2 / sigma**2)
 
@@ -41,7 +41,7 @@ ax = fig.add_subplot(111)
 
 ax.axhline(0, color='k')
 
-ax.fill_between(x_full, y_full, edgecolor='k', facecolor='0.8')
+ax.fill_between(x_full, y_full, edgecolor='k', facecolor='0.4')
 ax.fill_between(x_sigma3, y_sigma3, y2=0, edgecolor='', facecolor='0.6')
 ax.fill_between(x_sigma2, y_sigma2, y2=0, edgecolor='', facecolor='0.4')
 ax.fill_between(x_sigma1, y_sigma1, y2=0, edgecolor='', facecolor='0.2')
@@ -53,9 +53,9 @@ ax.set_yticks([])
 ax.set_xlim(-4, 4)
 ax.set_ylim(-0.1, 1.1)
 
-ax.text(0, 0.4, '68%', fontsize=12, color='w', va='center', ha='center')
+ax.text(0, 0.4, '68%', fontsize=24, color='w', va='center', ha='center')
 
 fig.subplots_adjust(bottom=0.30)
-
-# ax.tick_params(axis='x', which='major', labelsize=10, top='off')
+plt.text(-4,0, 'Daniel Valladares - titotau@gmail.com', fontsize=12, color='g')
+#ax.tick_params(axis='x', which='major', labelsize=10, top='off')
 plt.savefig('gauss.png')
